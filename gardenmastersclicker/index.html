@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Garden Masters Clicker – Beta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Patrick+Hand&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --yellow: #f5d000;
+      --yellow-dark: #e0b800;
+      --yellow-light: #fff8c0;
+      --green: #3a8c2f;
+      --green-light: #5cb84e;
+      --brown: #7a4a1e;
+      --red: #d63c2f;
+      --white: #fffef0;
+      --shadow: 4px 4px 0px #7a4a1e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--yellow);
+      background-image:
+        radial-gradient(circle at 10% 20%, #ffe44488 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, #c8a000aa 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='10' cy='10' r='2' fill='%23c8a00033'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23c8a00033'/%3E%3Ccircle cx='55' cy='15' r='1.5' fill='%23c8a00033'/%3E%3C/svg%3E");
+      font-family: 'Comic Sans MS', 'Patrick Hand', cursive;
+      min-height: 100vh;
+      color: var(--brown);
+    }
+
+    /* ── TOP BAR ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      background: var(--yellow-dark);
+      border-bottom: 4px solid var(--brown);
+      box-shadow: 0 4px 0 #c8a000;
+    }
+
+    header .logo-left {
+      font-family: 'Chewy', 'Comic Sans MS', cursive;
+      font-size: 1.25rem;
+      color: var(--green);
+      text-shadow: 2px 2px 0 var(--brown);
+      letter-spacing: 1px;
+    }
+
+    header .studio {
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--brown);
+      text-shadow: 1px 1px 0 #fff8a0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 52px 20px 32px;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 3px solid var(--brown);
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+      letter-spacing: 2px;
+      animation: wiggle 2s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-2deg); }
+      50%       { transform: rotate(2deg); }
+    }
+
+    .hero h1 {
+      font-family: 'Chewy', 'Comic Sans MS', cursive;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      color: var(--green);
+      text-shadow: 4px 4px 0 var(--brown), -1px -1px 0 #fff8a0;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: var(--brown);
+      font-size: 90%;
+    }
+
+    .hero p.tagline {
+      font-size: 1.15rem;
+      color: var(--brown);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    /* ── DOWNLOAD BUTTON ── */
+    .download-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-download {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Chewy', 'Comic Sans MS', cursive;
+      font-size: 1.6rem;
+      padding: 16px 44px;
+      border: 4px solid var(--brown);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-download::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .btn-download:hover {
+      background: var(--green-light);
+      transform: translateY(-3px);
+      box-shadow: 4px 7px 0px var(--brown);
+    }
+
+    .btn-download:active {
+      transform: translateY(2px);
+      box-shadow: 2px 2px 0px var(--brown);
+    }
+
+    .btn-note {
+      font-size: 0.82rem;
+      color: var(--brown);
+      opacity: 0.75;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 4px solid var(--brown);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 26px 24px;
+      position: relative;
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+
+    .card h2 {
+      font-family: 'Chewy', 'Comic Sans MS', cursive;
+      font-size: 1.45rem;
+      color: var(--green);
+      text-shadow: 2px 2px 0 #d4c000;
+      margin-bottom: 12px;
+    }
+
+    .card p, .card li {
+      font-size: 0.97rem;
+      line-height: 1.65;
+      color: #5a3510;
+    }
+
+    .card ul {
+      padding-left: 18px;
+    }
+
+    .card ul li {
+      margin-bottom: 6px;
+    }
+
+    /* Beta key card highlight */
+    .card.key-card {
+      border-color: var(--red);
+      box-shadow: 4px 4px 0 var(--red);
+    }
+
+    .card.key-card h2 {
+      color: var(--red);
+      text-shadow: 2px 2px 0 #ffaaaa;
+    }
+
+    .key-box {
+      background: var(--yellow-light);
+      border: 3px dashed var(--brown);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      font-size: 0.92rem;
+      color: var(--brown);
+    }
+
+    .key-box strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--red);
+    }
+
+    /* Changelog versions */
+    .version {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .version-tag {
+      background: var(--green);
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 0.78rem;
+      font-weight: bold;
+      padding: 3px 9px;
+      border-radius: 8px;
+      border: 2px solid var(--brown);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 18px;
+      font-size: 0.85rem;
+      color: var(--brown);
+      border-top: 3px solid var(--yellow-dark);
+      opacity: 0.7;
+    }
+
+    /* ── FLOATING DECO ── */
+    .deco {
+      position: fixed;
+      pointer-events: none;
+      font-size: 2rem;
+      opacity: 0.18;
+      animation: float 6s ease-in-out infinite;
+    }
+    .deco:nth-child(1) { top: 12%; left: 4%;  animation-delay: 0s;   font-size: 2.5rem; }
+    .deco:nth-child(2) { top: 60%; left: 2%;  animation-delay: 1.5s; font-size: 1.8rem; }
+    .deco:nth-child(3) { top: 25%; right: 3%; animation-delay: 0.8s; font-size: 3rem;   }
+    .deco:nth-child(4) { top: 72%; right: 5%; animation-delay: 2.2s; font-size: 2rem;   }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0);    }
+      50%       { transform: translateY(-14px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating decorations -->
+  <div class="deco">🌱</div>
+  <div class="deco">🌻</div>
+  <div class="deco">🍀</div>
+  <div class="deco">🌿</div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-left">🥕 Garden Masters</div>
+    <div class="studio">Mausi Studios</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">🌱 NOW IN BETA 🍎</div>
+    <h1>Garden Masters<br/><span>Clicker</span></h1>
+    <p class="tagline">Grow your garden, one click at a time. Download the beta and become the Master of Gardens!</p>
+    <div class="download-wrap">
+      <a class="btn-download" href="clicker_beta.html" download="clicker_beta.html">
+        🌻 Download Beta
+      </a>
+      <span class="btn-note">Free download · Beta key required to play</span>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <div class="cards">
+
+    <!-- About -->
+    <div class="card">
+      <div class="card-icon">🌷</div>
+      <h2>About the Game</h2>
+      <p>Garden Masters Clicker is a cozy idle clicker where you click a fruit, grow it, and unlock more! Start with a single carrot and work your way up to a legendary potato paradise.</p>
+      <ul style="margin-top:12px;">
+        <li>🪴 Dozens of fruits and plants to unlock</li>
+        <li>⚗️ Upgrade your tools & garden</li>
+        <li>🌍 Expand to new gardens</li>
+        <li>✨ Secret rare plants and fruits to discover</li>
+      </ul>
+    </div>
+
+    <!-- Beta Key Instructions -->
+    <div class="card key-card">
+      <div class="card-icon">🔑</div>
+      <h2>How to Use Your Beta Key</h2>
+      <p>The beta is key-protected. Here's how to get in:</p>
+      <div class="key-box">
+        <strong>Step 1 – Download</strong>
+        Click the Download Beta button above to save <em>clicker_beta.html</em> to your device.
+      </div>
+      <div class="key-box" style="margin-top:8px;">
+        <strong>Step 2 – Open the file</strong>
+        Open the downloaded HTML file in any browser (Chrome, Firefox, Edge).
+      </div>
+      <div class="key-box" style="margin-top:8px;">
+        <strong>Step 3 – Enter your key</strong>
+        You'll be prompted to enter your beta key. Keys are distributed by Mausi Studios — check your email or messages to find out if you got to the closed beta!
+      </div>
+    </div>
+
+    <!-- Changelog -->
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h2>Changelog</h2>
+
+      <div class="version">
+        <span class="version-tag">v0.0.0</span>
+        <p>No offical releases yet.</p>
+      </div>
+      <div class="version">
+        <span class="version-tag" style="background:#c8a000;">Upcoming</span>
+        <p>Closed beta.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Mausi Studios · Garden Masters Clicker Beta · All rights reserved
+  </footer>
+
+</body>
+</html>
