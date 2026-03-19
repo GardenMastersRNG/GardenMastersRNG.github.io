@@ -184,9 +184,9 @@
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 28px;
-      max-width: 880px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -227,8 +227,9 @@
       );
     }
 
-    .banner-rng   { background: linear-gradient(135deg, #2e8b22, #1a5c12); }
-    .banner-click { background: linear-gradient(135deg, #d97706, #92400e); }
+    .banner-rng    { background: linear-gradient(135deg, #2e8b22, #1a5c12); }
+    .banner-click  { background: linear-gradient(135deg, #d97706, #92400e); }
+    .banner-archive{ background: linear-gradient(135deg, #4b5563, #1f2937); }
 
     .lock-badge {
       position: absolute;
@@ -258,8 +259,9 @@
       border: 2px solid; align-self: flex-start;
     }
 
-    .tag-live { background:#dcfce7; color:var(--green);  border-color:var(--green); }
-    .tag-beta { background:#fef3c7; color:#92400e;       border-color:#d97706;      }
+    .tag-live    { background:#dcfce7; color:var(--green);  border-color:var(--green); }
+    .tag-beta    { background:#fef3c7; color:#92400e;       border-color:#d97706;      }
+    .tag-archive { background:#f3f4f6; color:#374151;       border-color:#6b7280;      }
 
     .game-card-title {
       font-family: 'Boogaloo', cursive;
@@ -285,8 +287,9 @@
       transition: transform 0.1s, box-shadow 0.1s;
     }
 
-    .cta-rng   { background: var(--green); color: #fff; }
-    .cta-click { background: #d97706;      color: #fff; }
+    .cta-rng     { background: var(--green); color: #fff; }
+    .cta-click   { background: #d97706;      color: #fff; }
+    .cta-archive { background: #4b5563;      color: #fff; }
 
     .game-card:hover .game-card-cta {
       transform: translateY(-2px);
@@ -490,6 +493,19 @@
         </div>
       </a>
 
+      <a class="game-card" href="/archivedgames">
+        <div class="game-card-banner banner-archive">
+          📦
+          <span class="lock-badge">✅ Unblocked!</span>
+        </div>
+        <div class="game-card-body">
+          <span class="game-card-tag tag-archive">🗄️ Archived</span>
+          <div class="game-card-title">Archived Games</div>
+          <p class="game-card-desc">A collection popular web browser games. Play games that may not be accessible on school or restricted network devices.</p>
+          <span class="game-card-cta cta-archive">Browse Archives →</span>
+        </div>
+      </a>
+
     </div>
   </section>
 
@@ -501,6 +517,13 @@
 
       <div class="news-card">
         <div class="news-date">March 2026</div>
+        <div class="news-headline">Archived Games?!</div>
+        <p class="news-body">We have added an Archived games section on our page. Browse games without being blocked by a school! 😂</p>
+        <span class="news-pill">Studio</span>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">March 2026</div>
         <div class="news-headline">Garden Masters Clicker Beta is Open!</div>
         <p class="news-body">The closed beta for Garden Masters Clicker is now live. Download it and grab a beta key to get in early!</p>
         <span class="news-pill">Clicker</span>
@@ -508,16 +531,9 @@
 
       <div class="news-card">
         <div class="news-date">November 2025</div>
-        <div class="news-headline">RNG Hits the Microsoft Store</div>
+        <div class="news-headline">RNG Hits the Microsoft Store<</div>
         <p class="news-body">Garden Masters RNG is officially available for free on Windows 10 & 11 via the Microsoft Store. Go get it!</p>
         <span class="news-pill">RNG</span>
-      </div>
-
-      <div class="news-card">
-        <div class="news-date">October 2025</div>
-        <div class="news-headline">RNG incoming?</div>
-        <p class="news-body">After the success of Garden Masters RNG, we have big announcements incoming. Stay tuned... 🌱</p>
-        <span class="news-pill">Studio</span>
       </div>
 
     </div>
