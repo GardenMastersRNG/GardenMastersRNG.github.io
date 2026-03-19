@@ -240,7 +240,8 @@
 
     .tag-archived { background: transparent; color: #888; border-color: #444; }
     .tag-blocked  { background: rgba(220,38,38,0.1); color: #f87171; border-color: var(--red-dark); }
-
+    .tag-live { background: rgba(46,139,34,0.15); color: #4ade80; border-color: #16a34a; }
+    
     .card-title {
       font-family: 'Boogaloo', cursive;
       font-size: 1.8rem;
@@ -388,8 +389,7 @@
       />
       <div class="card-body">
         <div class="card-tags">
-          <span class="tag tag-archived">🗄️ Archived</span>
-          <span class="tag tag-blocked">✅ Unblocked EVERYWHERE!</span>
+          <span class="tag tag-live">✅ Unblocked EVERYWHERE!</span>
         </div>
         <div class="card-title">Space Waves</div>
         <p class="card-desc">A Geometry Dash fangame. Play as a wave from Geometry Dash!</p>
@@ -405,7 +405,30 @@
         </div>
       </div>
     </div>
+<div class="game-card">
+      <img
+        class="card-banner"
+        src="https://respawn.fi/wp-content/uploads/2018/08/steam_blue_header_large_1.jpeg"
+        alt="Steam banner"
+        width="320"
+        height="180"
+      />
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-blocked">🟠 Patched</span>
+        </div>
+        <div class="card-title">Steam</div>
+        <p class="card-desc">Download hundreds of games at no cost. The gaiming paradise!</p>
 
+        <div class="card-buttons">
+          <div class="btn-wrap">
+            <div class="btn" style="opacity:0.4; cursor:not-allowed; background:#1a1a1a; border-color:#333;">
+              🚫 Not Available
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <footer>
