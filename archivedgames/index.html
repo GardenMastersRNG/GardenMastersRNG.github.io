@@ -31,338 +31,216 @@
       position: relative;
     }
 
-    /* ───── SKULL BACKGROUND ───── */
     .skulls {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0; overflow: hidden;
     }
-
     .skull {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.06;
-      animation: skull-drift ease-in-out infinite;
-      user-select: none;
+      position: absolute; font-size: 2rem; opacity: 0.06;
+      animation: skull-drift ease-in-out infinite; user-select: none;
     }
-
-    .skull:nth-child(1)  { left: 5%;  top: 8%;  font-size: 2.6rem; animation-duration: 8s;  animation-delay: 0s;   }
-    .skull:nth-child(2)  { left: 20%; top: 25%; font-size: 1.6rem; animation-duration: 11s; animation-delay: 1.2s; }
-    .skull:nth-child(3)  { left: 40%; top: 10%; font-size: 3rem;   animation-duration: 7s;  animation-delay: 0.4s; }
-    .skull:nth-child(4)  { left: 60%; top: 20%; font-size: 1.8rem; animation-duration: 9s;  animation-delay: 2s;   }
-    .skull:nth-child(5)  { left: 80%; top: 5%;  font-size: 2.2rem; animation-duration: 10s; animation-delay: 0.8s; }
-    .skull:nth-child(6)  { left: 92%; top: 30%; font-size: 1.5rem; animation-duration: 8s;  animation-delay: 3s;   }
-    .skull:nth-child(7)  { left: 3%;  top: 55%; font-size: 2.8rem; animation-duration: 12s; animation-delay: 1.5s; }
-    .skull:nth-child(8)  { left: 25%; top: 65%; font-size: 1.4rem; animation-duration: 9s;  animation-delay: 0.2s; }
-    .skull:nth-child(9)  { left: 50%; top: 55%; font-size: 2rem;   animation-duration: 7s;  animation-delay: 2.5s; }
-    .skull:nth-child(10) { left: 70%; top: 70%; font-size: 2.4rem; animation-duration: 10s; animation-delay: 1s;   }
-    .skull:nth-child(11) { left: 88%; top: 60%; font-size: 1.7rem; animation-duration: 8s;  animation-delay: 3.5s; }
-    .skull:nth-child(12) { left: 15%; top: 85%; font-size: 2rem;   animation-duration: 11s; animation-delay: 0.6s; }
-    .skull:nth-child(13) { left: 45%; top: 80%; font-size: 1.5rem; animation-duration: 9s;  animation-delay: 2.2s; }
-    .skull:nth-child(14) { left: 72%; top: 88%; font-size: 2.6rem; animation-duration: 7s;  animation-delay: 1.8s; }
-    .skull:nth-child(15) { left: 35%; top: 42%; font-size: 1.3rem; animation-duration: 13s; animation-delay: 4s;   }
-
+    .skull:nth-child(1)  { left:5%;  top:8%;  font-size:2.6rem; animation-duration:8s;  animation-delay:0s;   }
+    .skull:nth-child(2)  { left:20%; top:25%; font-size:1.6rem; animation-duration:11s; animation-delay:1.2s; }
+    .skull:nth-child(3)  { left:40%; top:10%; font-size:3rem;   animation-duration:7s;  animation-delay:0.4s; }
+    .skull:nth-child(4)  { left:60%; top:20%; font-size:1.8rem; animation-duration:9s;  animation-delay:2s;   }
+    .skull:nth-child(5)  { left:80%; top:5%;  font-size:2.2rem; animation-duration:10s; animation-delay:0.8s; }
+    .skull:nth-child(6)  { left:92%; top:30%; font-size:1.5rem; animation-duration:8s;  animation-delay:3s;   }
+    .skull:nth-child(7)  { left:3%;  top:55%; font-size:2.8rem; animation-duration:12s; animation-delay:1.5s; }
+    .skull:nth-child(8)  { left:25%; top:65%; font-size:1.4rem; animation-duration:9s;  animation-delay:0.2s; }
+    .skull:nth-child(9)  { left:50%; top:55%; font-size:2rem;   animation-duration:7s;  animation-delay:2.5s; }
+    .skull:nth-child(10) { left:70%; top:70%; font-size:2.4rem; animation-duration:10s; animation-delay:1s;   }
+    .skull:nth-child(11) { left:88%; top:60%; font-size:1.7rem; animation-duration:8s;  animation-delay:3.5s; }
+    .skull:nth-child(12) { left:15%; top:85%; font-size:2rem;   animation-duration:11s; animation-delay:0.6s; }
+    .skull:nth-child(13) { left:45%; top:80%; font-size:1.5rem; animation-duration:9s;  animation-delay:2.2s; }
+    .skull:nth-child(14) { left:72%; top:88%; font-size:2.6rem; animation-duration:7s;  animation-delay:1.8s; }
+    .skull:nth-child(15) { left:35%; top:42%; font-size:1.3rem; animation-duration:13s; animation-delay:4s;   }
     @keyframes skull-drift {
       0%,100% { transform: translateY(0) rotate(-5deg); }
       50%      { transform: translateY(-18px) rotate(5deg); }
     }
 
-    /* ───── NAV ───── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 12px 36px;
       background: var(--bg-nav);
       border-bottom: 3px solid var(--border);
     }
-
     .nav-brand {
-      font-family: 'Boogaloo', cursive;
-      font-size: 1.6rem;
-      color: #f0f0f0;
-      text-decoration: none;
+      font-family: 'Boogaloo', cursive; font-size: 1.6rem;
+      color: #f0f0f0; text-decoration: none;
       text-shadow: 0 0 12px rgba(255,255,255,0.15);
     }
-
     .nav-back {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--dim);
-      text-decoration: none;
-      padding: 5px 14px;
-      border-radius: 20px;
-      border: 2px solid var(--border-hot);
-      background: transparent;
+      font-weight: 600; font-size: 0.9rem; color: var(--dim);
+      text-decoration: none; padding: 5px 14px; border-radius: 20px;
+      border: 2px solid var(--border-hot); background: transparent;
       transition: color 0.15s, border-color 0.15s;
     }
-
     .nav-back:hover { color: var(--white); border-color: #888; }
 
-    /* ───── HEADER ───── */
     .page-header {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 56px 24px 40px;
+      position: relative; z-index: 1;
+      text-align: center; padding: 56px 24px 40px;
     }
-
     .page-eyebrow {
-      display: inline-block;
-      font-weight: 800;
-      font-size: 0.72rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--dim);
-      border: 2px solid var(--border-hot);
-      border-radius: 30px;
-      padding: 4px 18px;
-      margin-bottom: 16px;
+      display: inline-block; font-weight: 800; font-size: 0.72rem;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--dim); border: 2px solid var(--border-hot);
+      border-radius: 30px; padding: 4px 18px; margin-bottom: 16px;
       animation: pop-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
     }
-
     .page-header h1 {
       font-family: 'Boogaloo', cursive;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      color: var(--white);
+      font-size: clamp(2.8rem, 7vw, 5rem); color: var(--white);
       text-shadow: 0 0 40px rgba(220,38,38,0.4), 3px 3px 0 #000;
       line-height: 1.05;
       animation: pop-in 0.7s 0.1s cubic-bezier(0.34,1.56,0.64,1) both;
     }
-
     .page-header p {
-      margin-top: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--dim);
-      animation: fade-up 0.7s 0.2s both;
+      margin-top: 12px; font-size: 1rem; font-weight: 600;
+      color: var(--dim); animation: fade-up 0.7s 0.2s both;
     }
 
-    /* ───── WARNING BANNER ───── */
     .warning-banner {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      margin: 0 auto 40px;
-      padding: 0 24px;
+      position: relative; z-index: 1;
+      max-width: 760px; margin: 0 auto 16px; padding: 0 24px;
       animation: fade-up 0.6s 0.3s both;
     }
-
     .warning-inner {
-      background: rgba(220,38,38,0.08);
-      border: 2px solid var(--red-dark);
-      border-radius: 12px;
-      padding: 13px 18px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #f87171;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      background: rgba(220,38,38,0.08); border: 2px solid var(--red-dark);
+      border-radius: 12px; padding: 13px 18px;
+      font-size: 0.9rem; font-weight: 700; color: #f87171;
+      display: flex; align-items: center; gap: 10px;
     }
-
-   .warning-inner.yellow {
-  background: rgba(245,208,0,0.1);
-  border-color: #d9b800;
-  color: #f5d000;
+    .warning-inner.yellow {
+      background: rgba(245,208,0,0.1); border-color: #d9b800; color: #f5d000;
     }
-
     .warning-inner span { font-size: 1.3rem; }
 
-    /* ───── GRID ───── */
     .archive-grid {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 24px 72px;
+      gap: 28px; max-width: 1000px;
+      margin: 28px auto 0; padding: 0 24px 72px;
     }
 
-    /* ───── CARD ───── */
     .game-card {
-      background: var(--bg-card);
-      border: 3px solid var(--border);
-      border-radius: 18px;
-      box-shadow: var(--shadow-hard);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: var(--bg-card); border: 3px solid var(--border);
+      border-radius: 18px; box-shadow: var(--shadow-hard);
+      overflow: hidden; display: flex; flex-direction: column;
       animation: fade-up 0.5s 0.35s both;
       transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s, border-color 0.18s;
     }
-
     .game-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--border-hot);
+      transform: translateY(-5px); border-color: var(--border-hot);
       box-shadow: 0 0 24px rgba(220,38,38,0.15), 6px 10px 0 #000;
     }
 
-    .card-banner {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      border-bottom: 3px solid var(--border);
-      filter: grayscale(30%) brightness(0.85);
-      transition: filter 0.2s;
+    /* ── BANNER WRAPPER ── */
+    .card-banner-wrap {
+      position: relative; width: 100%; height: 180px; flex-shrink: 0;
     }
+    .card-banner {
+      width: 100%; height: 180px;
+      object-fit: cover; object-position: center; display: block;
+      border-bottom: 3px solid var(--border);
+      filter: grayscale(30%) brightness(0.85); transition: filter 0.2s;
+    }
+    .game-card:hover .card-banner { filter: grayscale(0%) brightness(1); }
 
-    .game-card:hover .card-banner {
-      filter: grayscale(0%) brightness(1);
+    /* ── PLAYER COUNT BADGE ── */
+    .player-badge {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(29, 78, 216, 0.88);
+      color: #fff; font-family: 'Baloo 2', cursive;
+      font-weight: 800; font-size: 0.72rem; letter-spacing: 0.5px;
+      padding: 4px 10px; border-radius: 8px;
+      border: 1.5px solid rgba(147,197,253,0.35);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      display: flex; align-items: center; gap: 6px;
+      z-index: 2; backdrop-filter: blur(4px);
+    }
+    .player-dot {
+      width: 6px; height: 6px; background: #4ade80; border-radius: 50%;
+      box-shadow: 0 0 6px #4ade80; flex-shrink: 0;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(0.65); }
     }
 
     .card-body {
-      padding: 20px 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
+      padding: 20px 20px 22px; display: flex;
+      flex-direction: column; gap: 10px; flex: 1;
     }
-
-    .card-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .card-tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .tag {
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-      border: 2px solid;
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 3px 10px;
+      border-radius: 20px; border: 2px solid;
     }
-
     .tag-archived { background: transparent; color: #888; border-color: #444; }
     .tag-blocked  { background: rgba(220,38,38,0.1); color: #f87171; border-color: var(--red-dark); }
-    .tag-live { background: rgba(46,139,34,0.15); color: #4ade80; border-color: #16a34a; }
-    
+    .tag-live     { background: rgba(46,139,34,0.15); color: #4ade80; border-color: #16a34a; }
+
     .card-title {
-      font-family: 'Boogaloo', cursive;
-      font-size: 1.8rem;
-      color: var(--white);
-      line-height: 1.1;
+      font-family: 'Boogaloo', cursive; font-size: 1.8rem;
+      color: var(--white); line-height: 1.1;
     }
-
     .card-desc {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--dim);
-      line-height: 1.65;
-      flex: 1;
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--dim); line-height: 1.65; flex: 1;
     }
 
-    /* ───── BUTTONS ───── */
-    .card-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    .btn-wrap {
-      position: relative;
-      padding-top: 6px;
-    }
-
+    .card-buttons { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+    .btn-wrap { position: relative; padding-top: 6px; }
     .btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-family: 'Boogaloo', cursive;
-      font-size: 1.1rem;
-      padding: 11px 20px;
-      border-radius: 50px;
-      border: 2px solid var(--border-hot);
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
-      background: #1a1a1a;
-      color: var(--white);
-      box-shadow: 3px 3px 0 #000;
+      display: block; width: 100%; text-align: center;
+      font-family: 'Boogaloo', cursive; font-size: 1.1rem;
+      padding: 11px 20px; border-radius: 50px;
+      border: 2px solid var(--border-hot); text-decoration: none;
+      cursor: pointer; transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+      background: #1a1a1a; color: var(--white); box-shadow: 3px 3px 0 #000;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 3px 5px 0 #000;
-      background: #222;
-    }
-
-    .btn:active {
-      transform: translateY(2px);
-      box-shadow: 1px 1px 0 #000;
-    }
-
+    .btn:hover { transform: translateY(-2px); box-shadow: 3px 5px 0 #000; background: #222; }
+    .btn:active { transform: translateY(2px); box-shadow: 1px 1px 0 #000; }
     .btn-primary {
-      background: var(--red-dark);
-      border-color: var(--red);
-      color: #fff;
+      background: var(--red-dark); border-color: var(--red); color: #fff;
       box-shadow: 3px 3px 0 #000, 0 0 14px rgba(220,38,38,0.25);
     }
-
     .btn-primary:hover {
       background: var(--red);
       box-shadow: 3px 5px 0 #000, 0 0 20px rgba(220,38,38,0.4);
     }
 
-    /* ───── FOOTER ───── */
     footer {
-      position: relative;
-      z-index: 1;
-      background: var(--bg-nav);
-      border-top: 3px solid var(--border);
-      text-align: center;
-      padding: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--dim);
+      position: relative; z-index: 1; background: var(--bg-nav);
+      border-top: 3px solid var(--border); text-align: center;
+      padding: 20px; font-size: 0.85rem; font-weight: 700; color: var(--dim);
     }
 
     @keyframes pop-in {
       from { transform: scale(0.7); opacity: 0; }
       to   { transform: scale(1);   opacity: 1; }
     }
-
     @keyframes fade-up {
       from { transform: translateY(16px); opacity: 0; }
       to   { transform: translateY(0);    opacity: 1; }
     }
-
-    @media (max-width: 580px) {
-      nav { padding: 12px 18px; }
-    }
+    @media (max-width: 580px) { nav { padding: 12px 18px; } }
   </style>
 </head>
 <body>
 
-  <!-- SKULLS -->
   <div class="skulls">
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
-    <span class="skull">💀</span>
+    <span class="skull">💀</span><span class="skull">💀</span><span class="skull">💀</span>
+    <span class="skull">💀</span><span class="skull">💀</span><span class="skull">💀</span>
+    <span class="skull">💀</span><span class="skull">💀</span><span class="skull">💀</span>
+    <span class="skull">💀</span><span class="skull">💀</span><span class="skull">💀</span>
+    <span class="skull">💀</span><span class="skull">💀</span><span class="skull">💀</span>
   </div>
 
   <nav>
@@ -377,22 +255,19 @@
   </div>
 
   <div class="warning-banner">
-  <div class="warning-inner yellow">
-    <span>➕</span>
-    Added Grow a Garden and Rob Brainrot 2!
+    <div class="warning-inner yellow">
+      <span>➕</span>
+      Added Grow a Garden and Rob Brainrot 2!
+    </div>
   </div>
-</div>
 
   <div class="archive-grid">
 
     <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://dashmetry.com/cache/data/image/game/space-waves/space-waves-m320x180.webp"
-        alt="Space Waves banner"
-        width="320"
-        height="180"
-      />
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://dashmetry.com/cache/data/image/game/space-waves/space-waves-m320x180.webp" alt="Space Waves banner" width="320" height="180"/>
+        <div class="player-badge" data-min="9" data-max="31"><div class="player-dot"></div><span class="player-count"></span></div>
+      </div>
       <div class="card-body">
         <div class="card-tags">
           <span class="tag tag-live">✅ Unblocked!</span>
@@ -400,54 +275,32 @@
         </div>
         <div class="card-title">Space Waves</div>
         <p class="card-desc">A Geometry Dash fangame. Play as a wave from Geometry Dash!</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://space-waves.co/game/space-waves/" target="_blank" rel="noopener">
-              🚀 Open Game
-            </a>
-          </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://space-waves.co/game/space-waves/" target="_blank" rel="noopener">🚀 Open Game</a>
+        </div></div>
       </div>
     </div>
 
-        <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://play-lh.googleusercontent.com/mpGLum7VcPBW8ZzeJrl-WoN_uUTEqhTIuKXLWD8wOIxDqCB4xkDwuqT3sjqExrH1JXtTvDv0ofW6IVkJx-4V=w526-h296-rw"
-        alt="Knockout banner"
-        width="320"
-        height="180"
-      />
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://play-lh.googleusercontent.com/mpGLum7VcPBW8ZzeJrl-WoN_uUTEqhTIuKXLWD8wOIxDqCB4xkDwuqT3sjqExrH1JXtTdv0ofW6IVkJx-4V=w526-h296-rw" alt="Knockout banner" width="320" height="180"/>
+        <div class="player-badge" data-min="7" data-max="15"><div class="player-dot"></div><span class="player-count"></span></div>
+      </div>
       <div class="card-body">
-        <div class="card-tags">
-          <span class="tag tag-live">✅ Unblocked!</span>
-        </div>
+        <div class="card-tags"><span class="tag tag-live">✅ Unblocked!</span></div>
         <div class="card-title">Knockout</div>
         <p class="card-desc">One of the most popular Roblox games. Slide on ice as a penguin and try to eliminate the other penguins by pushing.</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://app-502535.cdn.games.yandex.net/502535/a50gkjtnm2neoj4dq4jxdj1zli5fjus4_brotli/index.html?is-united-page=1&skip-guard=1&header=no&clid=10575041&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.1cfa6241c8b6991a4ef6.js#origin=https%3A%2F%2Fyandex.com&app-id=502535&device-type=desktop" target="_blank" rel="noopener">
-              🚀 Open Game
-            </a>
-          </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://app-502535.cdn.games.yandex.net/502535/a50gkjtnm2neoj4dq4jxdj1zli5fjus4_brotli/index.html?is-united-page=1&skip-guard=1&header=no&clid=10575041&flags=%7B%22adv_sticky_banner_disabled%22%3Atrue%7D&sdk=%2Fsdk%2F_%2Fv2.1cfa6241c8b6991a4ef6.js#origin=https%3A%2F%2Fyandex.com&app-id=502535&device-type=desktop" target="_blank" rel="noopener">🚀 Open Game</a>
+        </div></div>
       </div>
     </div>
 
-            <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://www.spectator.com.au/wp-content/uploads/2025/07/5Julygamer.png?w=820&h=550&crop=1"
-        alt="Garden banner"
-        width="320"
-        height="180"
-      />
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://www.spectator.com.au/wp-content/uploads/2025/07/5Julygamer.png?w=820&h=550&crop=1" alt="Garden banner" width="320" height="180"/>
+        <div class="player-badge" data-min="3" data-max="8"><div class="player-dot"></div><span class="player-count"></span></div>
+      </div>
       <div class="card-body">
         <div class="card-tags">
           <span class="tag tag-live">✅ Unblocked!</span>
@@ -455,182 +308,119 @@
         </div>
         <div class="card-title">Grow A Garden</div>
         <p class="card-desc">Grow your garden one step at a time! Plant and sell to make a living in this world!</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://html5.gamedistribution.com/rvvASMiM/f500d997fe1e4b85a3bdfd0f11002942/index.html" target="_blank" rel="noopener">
-              🚀 Open Game
-            </a>
-          </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://html5.gamedistribution.com/rvvASMiM/f500d997fe1e4b85a3bdfd0f11002942/index.html" target="_blank" rel="noopener">🚀 Open Game</a>
+        </div></div>
       </div>
     </div>
 
-            <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://geometry-games.io/data/image/game/rob-brainrot-2/rob-brainrot-2-online.png"
-        alt="RobRot banner"
-        width="320"
-        height="180"
-      />
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://geometry-games.io/data/image/game/rob-brainrot-2/rob-brainrot-2-online.png" alt="RobRot banner" width="320" height="180"/>
+        <div class="player-badge" data-min="2" data-max="8"><div class="player-dot"></div><span class="player-count"></span></div>
+      </div>
       <div class="card-body">
-        <div class="card-tags">
-          <span class="tag tag-live">✅ Unblocked!</span>
-        </div>
+        <div class="card-tags"><span class="tag tag-live">✅ Unblocked!</span></div>
         <div class="card-title">Rob Brainrot 2</div>
         <p class="card-desc">Rob brainrots from other players and protect your base from any robbers in this multiactive rigid game.</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://azgames.io/rob-brainrot-2.embed" target="_blank" rel="noopener">
-              🚀 Open Game
-            </a>
-          </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://azgames.io/rob-brainrot-2.embed" target="_blank" rel="noopener">🚀 Open Game</a>
+        </div></div>
       </div>
     </div>
-<div class="game-card">
-      <img
-        class="card-banner"
-        src="https://respawn.fi/wp-content/uploads/2018/08/steam_blue_header_large_1.jpeg"
-        alt="Steam banner"
-        width="320"
-        height="180"
-      />
+
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://respawn.fi/wp-content/uploads/2018/08/steam_blue_header_large_1.jpeg" alt="Steam banner" width="320" height="180"/>
+      </div>
       <div class="card-body">
-        <div class="card-tags">
-          <span class="tag tag-blocked">🟠 Patched</span>
-        </div>
+        <div class="card-tags"><span class="tag tag-blocked">🟠 Patched</span></div>
         <div class="card-title">Steam</div>
         <p class="card-desc">Download hundreds of games at no cost. The gaming paradise!</p>
-
-        <div class="card-buttons">
-          <div class="btn-wrap">
-            <div class="btn" style="opacity:0.4; cursor:not-allowed; background:#1a1a1a; border-color:#333;">
-              🚫 Not Available
-            </div>
-          </div>
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <div class="btn" style="opacity:0.4;cursor:not-allowed;background:#1a1a1a;border-color:#333;">🚫 Not Available</div>
+        </div></div>
       </div>
     </div>
 
-      <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://hotgames.io/data/image/game/buildnowgg.png"
-        alt="BuildNow banner"
-        width="320"
-        height="180"
-      />
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://hotgames.io/data/image/game/buildnowgg.png" alt="BuildNow banner" width="320" height="180"/>
+        <div class="player-badge" data-min="1" data-max="3"><div class="player-dot"></div><span class="player-count"></span></div>
+      </div>
       <div class="card-body">
-        <div class="card-tags">
-          <span class="tag tag-archived">❔ Unverified</span>
-        </div>
+        <div class="card-tags"><span class="tag tag-archived">❔ Unverified</span></div>
         <div class="card-title">BuildNow GG</div>
         <p class="card-desc">A Fortnite fangame right on your browser!</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://soulpeacemind.com/games/buildnow-gg-gpotty/" target="_blank" rel="noopener">
-              🚀 Open Game
-            </a>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://soulpeacemind.com/games/buildnow-gg-gpotty/" target="_blank" rel="noopener">🚀 Open Game</a>
+        </div></div>
       </div>
     </div>
-  
-    </div>
 
-          <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://crossyroadgame.io/data/image/game/subway-surfers.jpeg"
-        alt="Subway banner"
-        width="320"
-        height="180"
-      />
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://crossyroadgame.io/data/image/game/subway-surfers.jpeg" alt="Subway banner" width="320" height="180"/>
+      </div>
       <div class="card-body">
-        <div class="card-tags">
-          <span class="tag tag-blocked">❗ Russian SPYWARE</span>
-        </div>
+        <div class="card-tags"><span class="tag tag-blocked">❗ Russian SPYWARE</span></div>
         <div class="card-title">Subway Surfers</div>
         <p class="card-desc">A identical version of subway surfers ripped from Crazy Games!</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <div class="btn" style="opacity:0.4; cursor:not-allowed; background:#1a1a1a; border-color:#333;">
-              🚫 Not Available
-            </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <div class="btn" style="opacity:0.4;cursor:not-allowed;background:#1a1a1a;border-color:#333;">🚫 Not Available</div>
+        </div></div>
       </div>
     </div>
-  
-    </div>
 
-        <div class="game-card">
-      <img
-        class="card-banner"
-        src="https://i.ytimg.com/vi/ewRR3ZrcLAA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAcNpdDXt1bNBeaHxm3pyHs8YkKQw"
-        alt="Capybara banner"
-        width="320"
-        height="180"
-      />
+    <div class="game-card">
+      <div class="card-banner-wrap">
+        <img class="card-banner" src="https://i.ytimg.com/vi/ewRR3ZrcLAA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAcNpdDXt1bNBeaHxm3pyHs8YkKQw" alt="Capybara banner" width="320" height="180"/>
+        <div class="player-badge" data-min="0" data-max="6"><div class="player-dot"></div><span class="player-count"></span></div>
+      </div>
       <div class="card-body">
-        <div class="card-tags">
-          <span class="tag tag-archived">❔ Unverified</span>
-        </div>
+        <div class="card-tags"><span class="tag tag-archived">❔ Unverified</span></div>
         <div class="card-title">Capybara Clicker</div>
         <p class="card-desc">An OG game everybody used to play. Click a capybara and upgrade your tools!</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://crazygames.cdn.msnfun.com/9nd7r220g2wd/v34/index.html?msstart_sdk_init=eyJwYXJlbnRPcmlnaW4iOiJodHRwczovL3d3dy5tc24uY29tIiwiY2xpZW50SWQiOiIzREYxRUMwNjRBOTE2RUU0MzExMEZBOUQ0QkI5NkZGMSIsImxvY2FsZSI6ImVuLWdiIiwiZW50cnlQb2ludElkIjoiIiwic3dpdGNoR2FtZVBheWxvYWQiOnsic3dpdGNoZWRUbyI6IjluZDdyMjIwZzJ3ZCIsInZhbHVlIjp7fX19" target="_blank" rel="noopener">
-              🚀 Open Game
-            </a>
-          </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://crazygames.cdn.msnfun.com/9nd7r220g2wd/v34/index.html?msstart_sdk_init=eyJwYXJlbnRPcmlnaW4iOiJodHRwczovL3d3dy5tc24uY29tIiwiY2xpZW50SWQiOiIzREYxRUMwNjRBOTE2RUU0MzExMEZBOUQ0QkI5NkZGMSIsImxvY2FsZSI6ImVuLWdiIiwiZW50cnlQb2ludElkIjoiIiwic3dpdGNoR2FtZVBheWxvYWQiOnsic3dpdGNoZWRUbyI6IjluZDdyMjIwZzJ3ZCIsInZhbHVlIjp7fX19" target="_blank" rel="noopener">🚀 Open Game</a>
+        </div></div>
       </div>
-
           <div class="game-card">
       <div class="card-body">
         <div class="card-tags">
-          <span class="tag tag-live">⭐ Offical ⭐</span>
+          <span class="tag tag-live">⭐ Official ⭐</span>
           <span class="tag tag-live">🔥 HOT!</span>
           <span class="tag tag-live">✅ Unblocked!</span>
         </div>
         <div class="card-title">Garden Masters Clicker</div>
         <p class="card-desc">A 10x better clicker game than capybara clicker! You HAVE to TRY! 🔥</p>
-
-        <div class="card-buttons">
-
-          <div class="btn-wrap">
-            <a class="btn btn-primary" href="https://gardenmastersrng.github.io/gardenmastersclicker/" target="_blank" rel="noopener">
-              🔑 Download now!
-            </a>
-          </div>
-
-        </div>
+        <div class="card-buttons"><div class="btn-wrap">
+          <a class="btn btn-primary" href="https://gardenmastersrng.github.io/gardenmastersclicker/" target="_blank" rel="noopener">🔑 Download now!</a>
+        </div></div>
       </div>
+    </div>
+    </div>
 
-        </div>
-    </div>
-    </div>
-    </div>
   </div>
 
   <footer>
     © 2026 Mausi Studios · Archived Games · All rights reserved 🌱
   </footer>
+
+  <script>
+    // ── PLAYER COUNT BADGES ──────────────────────────────────────────────────
+    // Each badge reads data-min and data-max from its HTML element.
+    // To customise a game's range, just change those two numbers in the HTML.
+    // Example: data-min="50" data-max="300"
+    // Disabled cards (no .player-badge element) show nothing automatically.
+    // ────────────────────────────────────────────────────────────────────────
+    document.querySelectorAll('.player-badge').forEach(badge => {
+      const min   = parseInt(badge.dataset.min) || 10;
+      const max   = parseInt(badge.dataset.max) || 99;
+      const count = Math.floor(Math.random() * (max - min + 1)) + min;
+      badge.querySelector('.player-count').textContent = count + ' playing';
+    });
+  </script>
 
 </body>
 </html>
