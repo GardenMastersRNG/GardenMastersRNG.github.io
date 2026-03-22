@@ -424,19 +424,69 @@
     © 2026 Mausi Studios · Archived Games · All rights reserved 🌱
   </footer>
 
+  <!-- COUNTDOWN TIMER -->
+  <div id="sync-timer" style="
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 10px 0 28px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 1px;
+  ">🔄 Player counts refresh in <span id="timer-val">--:--</span></div>
+
   <script>
-    // ── PLAYER COUNT BADGES ──────────────────────────────────────────────────
-    // Each badge reads data-min and data-max from its HTML element.
-    // To customise a game's range, just change those two numbers in the HTML.
-    // Example: data-min="50" data-max="300"
-    // Disabled cards (no .player-badge element) show nothing automatically.
-    // ────────────────────────────────────────────────────────────────────────
-    document.querySelectorAll('.player-badge').forEach(badge => {
-      const min   = parseInt(badge.dataset.min) || 10;
-      const max   = parseInt(badge.dataset.max) || 99;
-      const count = Math.floor(Math.random() * (max - min + 1)) + min;
-      badge.querySelector('.player-count').textContent = count + ' playing';
-    });
+
+    function seededRand(seed) {
+      // Mulberry32 — using 32 bit system
+      return function() {
+        seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+        var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+
+    function getCurrentSlot() {
+      // Returns a number that changes depending on the player count
+      return Math.floor(Date.now() / (15 * 60 * 1000));
+    }
+
+    function renderCounts() {
+      const slot = getCurrentSlot();
+      const rand = seededRand(slot);
+
+      document.querySelectorAll('.player-badge').forEach(badge => {
+        const min = parseInt(badge.dataset.min);
+        const max = parseInt(badge.dataset.max);
+        // Use || only when truly undefined, not when 0
+        const lo = isNaN(min) ? 10 : min;
+        const hi = isNaN(max) ? 99 : max;
+        const count = Math.floor(rand() * (hi - lo + 1)) + lo;
+        badge.querySelector('.player-count').textContent = count + ' playing';
+      });
+    }
+
+    // ── COUNTDOWN TIMER ─────────────────────────────────────────────────────
+    function updateTimer() {
+      const now = Date.now();
+      const msPerSlot = 15 * 60 * 1000;
+      const msUntilNext = msPerSlot - (now % msPerSlot);
+      const mins = Math.floor(msUntilNext / 60000);
+      const secs = Math.floor((msUntilNext % 60000) / 1000);
+      document.getElementById('timer-val').textContent =
+        String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+
+      // When slot flips, re-render counts
+      if (msUntilNext < 1050) {
+        setTimeout(renderCounts, 1100);
+      }
+    }
+
+    renderCounts();
+    updateTimer();
+    setInterval(updateTimer, 1000);
   </script>
 
 </body>
