@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mausi Studios TOR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #0d0d0d;
+      --surface:   #161616;
+      --border:    #2a2a2a;
+      --border-hi: #3d3d3d;
+      --white:     #e8e8e8;
+      --dim:       #666;
+      --accent:    #a0a0a0;
+      --steam:     #1b2838;
+      --steam-hi:  #2a475e;
+      --steam-btn: #1a9fff;
+      --steam-glo: rgba(26,159,255,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── GRID BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── RADIAL GLOW ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(80,80,80,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── MAIN CARD ── */
+    .card {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 56px 52px 48px;
+      max-width: 520px;
+      width: calc(100% - 48px);
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03),
+        0 24px 80px rgba(0,0,0,0.6);
+      animation: card-in 0.7s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @keyframes card-in {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-hi);
+      border-radius: 30px;
+      padding: 5px 14px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--dim);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: card-in 0.6s 0.1s both;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #4ade80;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.3; }
+    }
+
+    /* ── HEADING ── */
+    .logo-line {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      color: var(--white);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      animation: card-in 0.65s 0.15s both;
+    }
+
+    .logo-line span {
+      color: var(--dim);
+      font-size: 85%;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 48px; height: 1px;
+      background: var(--border-hi);
+      margin: 22px auto;
+      animation: card-in 0.65s 0.2s both;
+    }
+
+    /* ── THANK YOU TEXT ── */
+    .thank-you {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1.75;
+      margin-bottom: 8px;
+      animation: card-in 0.65s 0.25s both;
+    }
+
+    .thank-you strong {
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .sub-text {
+      font-size: 0.82rem;
+      color: var(--dim);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      animation: card-in 0.65s 0.3s both;
+    }
+
+    /* ── STEAM BUTTON ── */
+    .btn-steam {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--steam-btn);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 15px 40px;
+      border-radius: 10px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 4px 24px var(--steam-glo);
+      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+      animation: card-in 0.65s 0.38s both;
+      width: 100%;
+    }
+
+    .btn-steam:hover {
+      background: #2db0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 8px 32px rgba(26,159,255,0.4);
+    }
+
+    .btn-steam:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 2px 10px var(--steam-glo);
+    }
+
+    /* Steam logo SVG */
+    .steam-icon {
+      width: 22px; height: 22px; flex-shrink: 0;
+    }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      font-size: 0.72rem;
+      color: #333;
+      font-family: 'Share Tech Mono', monospace;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      animation: card-in 0.6s 0.5s both;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 40px 28px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="badge">
+      <div class="badge-dot"></div>
+      Connected
+    </div>
+
+    <div class="logo-line">
+      Mausi Studios <span>TOR</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="thank-you">
+      Thank you for installing <strong>Mausi Studios TOR</strong>.<br/>
+      Use steam services without interuptions!
+    </p>
+    <p class="sub-text">
+      You're all set. Check out steam and get to playing.<br/>
+    </p>
+
+    <a class="btn-steam" href="https://store.steampowered.com" target="_blank" rel="noopener">
+      <!-- Steam logo -->
+      <svg class="steam-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.497 1.009 2.455-.397.957-1.494 1.41-2.455 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+      </svg>
+      Open Steam
+    </a>
+
+  </div>
+
+  <div class="footer-note">mausi-studios-tor · v1.0</div>
+
+</body>
+</html>
